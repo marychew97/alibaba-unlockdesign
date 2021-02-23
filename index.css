@@ -1,0 +1,194 @@
+body{
+    margin: 0;
+}
+
+#myVideo {
+    /* position: fixed; */
+    /* right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%; */
+    position: fixed;
+    bottom: 0;
+    /* overflow: hidden;
+    height: 100vh;
+    width: 100%; */
+}
+
+.mapImg {
+    /* max-height: 100%; */
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+}
+
+#Div-B{
+    /* background-image: url('map1.png'); */
+    /* height: 100vh; */
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; */
+    /* padding: 3rem; */
+}
+
+.textSectionOne{
+    display: inline;
+}
+
+.buttonSection{
+    float: right;
+}
+
+.textSectionTwo{
+    float: right
+}
+
+#startTour{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.showMap{
+    display: block !important;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		display: none;
+	}
+	100% {
+		display: block;
+	}
+}
+
+.states{
+    position: absolute;
+    top: 15rem;
+    height: 30rem;
+    width: 100%;
+}
+
+.stateImg{
+    width: 3rem;
+    height: auto;
+}
+
+#perlis{
+    position: absolute;
+    left: 11rem;
+    top: 4rem;
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+}
+
+#kedah{
+    position: absolute;
+    left: 15rem;
+    top: 10rem;
+    cursor: pointer;
+}
+
+#kelantan{
+    position: absolute;
+    left: 23rem;
+    top: 10rem;
+    cursor: pointer;
+}
+
+#penang{
+    position: absolute;
+    left: 11rem;
+    top: 12rem;
+    cursor: pointer;
+}
+
+#perak{
+    position: absolute;
+    left: 15rem;
+    top: 15rem;
+    cursor: pointer;
+}
+
+#selangor{
+    position: absolute;
+    left: 20rem;
+    top: 25rem;
+    cursor: pointer;
+}
+
+#pahang{
+    position: absolute;
+    left: 25rem;
+    top: 20rem;
+    cursor: pointer;
+}
+
+#terengganu{
+    position: absolute;
+    left: 30rem;
+    top: 15rem;
+    cursor: pointer;
+}
+
+#negsembilan{
+    position: absolute;
+    left: 23rem;
+    top: 28rem;
+    cursor: pointer;
+}
+
+#melaka{
+    position: absolute;
+    left: 24rem;
+    top: 31rem;
+    cursor: pointer;
+}
+
+#johor{
+    position: absolute;
+    left: 30rem;
+    top: 33rem;
+    cursor: pointer;
+}
+
+#sarawak{
+    position: absolute;
+    left: 90rem;
+    top: 30rem;
+    cursor: pointer;
+}
+
+#sabah{
+    position: absolute;
+    left: 150rem;
+    top: 10rem;
+    cursor: pointer;
+}
+
+.contents:not(:first-child){
+    display: none;
+}
+
+.contentImg{
+    width: 100%;
+}
+
+.inputChoice{
+    margin-right: 2rem;
+}
+
+.inputValue{
+    margin-right: 0.5rem !important;
+}
+
+.popover{
+    width: 100%;
+    /* max-width: 30% */
+}
