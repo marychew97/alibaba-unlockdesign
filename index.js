@@ -1,106 +1,108 @@
-var tour = new Tour({
-    name: "tour",
-    steps: [
-    {
-        element: "#selangor",
-        title: renderTitle('selangor.svg', 'Selangor'),
-        content: selangorContent()
-    },
-    {
-        element: "#startTour",
-        title: "General Quiz of Malaysia's States",
-        content: "This is to help you to understand the story behind of each state"
-    },
-    {
-      element: "#perlis",
-      title: "<img src='images/perlis.png' alt='perlis' class='stateImg'/> Perlis",
-      content: perlisContent()
-    },
-    {
-      element: "#kedah",
-      title: "Kedah",
-      content: "Content of my step"
-    },
-    {
-        element: "#kelantan",
-        title: "Kelantan",
-        content: "Content of my step"
-    },
-    {
-        element: "#penang",
-        title: "Penang",
-        content: "Content of my step"
-    },
-    {
-        element: "#perak",
-        title: "Perak",
-        content: "Content of my step"
-    },
+// var tour = new Tour({
+//     name: "tour",
+//     steps: [
+//     {
+//         element: "#selangor",
+//         title: renderTitle('selangor.svg', 'Selangor'),
+//         content: selangorContent()
+//     },
+//     {
+//         element: "#startTour",
+//         title: "General Quiz of Malaysia's States",
+//         content: "This is to help you to understand the story behind of each state"
+//     },
+//     {
+//       element: "#perlis",
+//       title: "<img src='images/perlis.png' alt='perlis' class='stateImg'/> Perlis",
+//       content: perlisContent()
+//     },
+//     {
+//       element: "#kedah",
+//       title: "Kedah",
+//       content: "Content of my step"
+//     },
+//     {
+//         element: "#kelantan",
+//         title: "Kelantan",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#penang",
+//         title: "Penang",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#perak",
+//         title: "Perak",
+//         content: "Content of my step"
+//     },
     
-    {
-        element: "#pahang",
-        title: "Pahang",
-        content: "Content of my step"
-    },
-    {
-        element: "#terengganu",
-        title: "Terengganu",
-        content: "Content of my step"
-    },
-    {
-        element: "#negsembilan",
-        title: "Negeri Sembilan",
-        content: "Content of my step"
-    },
-    {
-        element: "#melaka",
-        title: "Melaka",
-        content: "Content of my step"
-    },
-    {
-        element: "#johor",
-        title: "Johor",
-        content: "Content of my step"
-    },
-    {
-        element: "#sarawak",
-        title: "Sarawak",
-        content: "Content of my step"
-    },
-    {
-        element: "#sabah",
-        title: "Sabah",
-        content: "Content of my step"
-    },
-    ],
-    container: "body",
-    smartPlacement: true,
-    keyboard: true,
-    storage: false,
-    debug: false,
-    backdrop: false,
-    backdropContainer: 'body',
-    backdropPadding: 0,
-    redirect: true,
-    orphan: false,
-    duration: false,
-    delay: false,
-    basePath: "",
-    template: "<div class='popover tour'><div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <button class='btn btn-default' data-role='prev'>« Prev</button> <span data-role='separator'>|</span> <button class='btn btn-default' data-role='next'>Next »</button></div><button class='btn btn-default' data-role='end'>End tour</button></div>"
-});
+//     {
+//         element: "#pahang",
+//         title: "Pahang",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#terengganu",
+//         title: "Terengganu",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#negsembilan",
+//         title: "Negeri Sembilan",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#melaka",
+//         title: "Melaka",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#johor",
+//         title: "Johor",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#sarawak",
+//         title: "Sarawak",
+//         content: "Content of my step"
+//     },
+//     {
+//         element: "#sabah",
+//         title: "Sabah",
+//         content: "Content of my step"
+//     },
+//     ],
+//     container: "body",
+//     smartPlacement: true,
+//     keyboard: true,
+//     storage: false,
+//     debug: false,
+//     backdrop: false,
+//     backdropContainer: 'body',
+//     backdropPadding: 0,
+//     redirect: true,
+//     orphan: false,
+//     duration: false,
+//     delay: false,
+//     basePath: "",
+//     template: "<div class='popover tour'><div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <button class='btn btn-default' data-role='prev'>« Prev</button> <span data-role='separator'>|</span> <button class='btn btn-default' data-role='next'>Next »</button></div><button class='btn btn-default' data-role='end'>End tour</button></div>"
+// });
 
 var answerChosen = '';
 
 // Initialize the tour
-tour.init();
+// tour.init();
 
 window.onload = function () {
             setTimeout(
                 function () {
-                    $('#Div-A').replaceWith($('#Div-B'));
-                    $('#Div-B').addClass('showMap');
+                    $('#myVideo').css('display', 'none')
+                    $('#map').css('display', 'block')
+                    // $('#Div-A').replaceWith($('#Div-B'));
+                    // $('#Div-B').addClass('showMap');
                     // Start the tour
-                    tour.start();
+                    // tour.start();
                     $('#handGestures').on('click', function(){
                         alert('hand gestures')
                     })
@@ -116,11 +118,21 @@ window.onload = function () {
                     $('#localFoods').on('click', function(){
                         alert('local foods')
                     })
+
+                    $(function () { 
+                        $("#tourStart").popover('show');
+                      });
                 },
                 5000
             );
             
         };
+
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+          })
+
+         
 
 function renderTitle(img, name){
     return "<img src='images/" + img + "' alt='" + img + "' class='stateImg'/> " + name; 

@@ -1,5 +1,6 @@
 body{
     margin: 0;
+    overflow: hidden
 }
 
 #myVideo {
@@ -22,6 +23,19 @@ body{
     margin: 0 auto;
     /* margin-top: 2rem;
     margin-bottom: 2rem; */
+}
+
+#map{
+    background: linear-gradient(to left, rgba(0,0,0, 0.2), rgba(0,0,0,0.2)),url(images/space.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#mapContent{
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 #Div-B{
@@ -79,97 +93,8 @@ body{
     height: auto;
 }
 
-#perlis{
-    position: absolute;
-    left: 11rem;
-    top: 4rem;
-    cursor: pointer;
-    width: 1rem;
-    height: 1rem;
-}
-
-#kedah{
-    position: absolute;
-    left: 15rem;
-    top: 10rem;
-    cursor: pointer;
-}
-
-#kelantan{
-    position: absolute;
-    left: 23rem;
-    top: 10rem;
-    cursor: pointer;
-}
-
-#penang{
-    position: absolute;
-    left: 11rem;
-    top: 12rem;
-    cursor: pointer;
-}
-
-#perak{
-    position: absolute;
-    left: 15rem;
-    top: 15rem;
-    cursor: pointer;
-}
-
-#selangor{
-    position: absolute;
-    left: 20rem;
-    top: 25rem;
-    cursor: pointer;
-}
-
-#pahang{
-    position: absolute;
-    left: 25rem;
-    top: 20rem;
-    cursor: pointer;
-}
-
-#terengganu{
-    position: absolute;
-    left: 30rem;
-    top: 15rem;
-    cursor: pointer;
-}
-
-#negsembilan{
-    position: absolute;
-    left: 23rem;
-    top: 28rem;
-    cursor: pointer;
-}
-
-#melaka{
-    position: absolute;
-    left: 24rem;
-    top: 31rem;
-    cursor: pointer;
-}
-
-#johor{
-    position: absolute;
-    left: 30rem;
-    top: 33rem;
-    cursor: pointer;
-}
-
-#sarawak{
-    position: absolute;
-    left: 90rem;
-    top: 30rem;
-    cursor: pointer;
-}
-
-#sabah{
-    position: absolute;
-    left: 150rem;
-    top: 10rem;
-    cursor: pointer;
+.contents{
+    margin: 1rem;
 }
 
 .contents:not(:first-child){
@@ -177,7 +102,35 @@ body{
 }
 
 .contentImg{
-    width: 100%;
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.icon{
+    font-size: 2rem;
+}
+
+.btnIcon{
+    padding: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+}
+
+.btnIcon:focus, .btnIcon:hover, .btnIcona:active{
+    background: none;
+    border: none;
+    box-shadow: none !important;
+    color: #fff;
+    
+    text-shadow: 1px 1px grey;
+}
+
+.buttonText{
+    font-weight: bold;
 }
 
 .inputChoice{
