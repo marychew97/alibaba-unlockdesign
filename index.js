@@ -134,60 +134,60 @@ window.onload = function () {
 
          
 
-function renderTitle(img, name){
-    return "<img src='images/" + img + "' alt='" + img + "' class='stateImg'/> " + name; 
-}
+// function renderTitle(img, name){
+//     return "<img src='images/" + img + "' alt='" + img + "' class='stateImg'/> " + name; 
+// }
 
-function perlisContent(){
-    return '<span>perlis quiz</span>'
-}
+// function perlisContent(){
+//     return '<span>perlis quiz</span>'
+// }
 
-function selangorContent(){
-    var array = [
-        {
-            title: 'How many pasar malam are there in Selangor?',
-            image: 'pasarmalam.jpeg',
-            choices: [75, 135, 265],
-            answer: 135
-        },
-        {
-            title: 'How tall is the Lord Murugan Statue in Batu Caves?',
-            image: 'batucaves.jpg',
-            choices: ['122.0 meters', '42.7 meters', '43.5 meters'],
-            answer: '42.7 meters'
-        }
-    ]
-    console.log(array)
-    var html = ''
+// function selangorContent(){
+//     var array = [
+//         {
+//             title: 'How many pasar malam are there in Selangor?',
+//             image: 'pasarmalam.jpeg',
+//             choices: [75, 135, 265],
+//             answer: 135
+//         },
+//         {
+//             title: 'How tall is the Lord Murugan Statue in Batu Caves?',
+//             image: 'batucaves.jpg',
+//             choices: ['122.0 meters', '42.7 meters', '43.5 meters'],
+//             answer: '42.7 meters'
+//         }
+//     ]
+//     console.log(array)
+//     var html = ''
     
-    for(var i=0; i<array.length; i++){
-        var choices = array[i].choices;
-        var inputs = '';
-        for(var j=0; j<choices.length; j++){
-            inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(' + choices[j] + ')"/>' + choices[j] + '</span>';
-        }
+//     for(var i=0; i<array.length; i++){
+//         var choices = array[i].choices;
+//         var inputs = '';
+//         for(var j=0; j<choices.length; j++){
+//             inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(' + choices[j] + ')"/>' + choices[j] + '</span>';
+//         }
 
-        html += '<div class="contents">' +
-                '<span>' + array[i].title + '</span>' +
-                '<img src="images/' + array[i].image + '" class="contentImg"/>'+ inputs +
-                '<br/><span class="finalAnswer" style="display: none">Answer: ' + array[i].answer +'</span>' + 
-                '<button type="button" class="btn btn-default buttonText" onclick="submitAnswer(' + array[i].answer + ')">Submit</button>' + 
-                '</div>'
-    }
-    return html
-}
+//         html += '<div class="contents">' +
+//                 '<span>' + array[i].title + '</span>' +
+//                 '<img src="images/' + array[i].image + '" class="contentImg"/>'+ inputs +
+//                 '<br/><span class="finalAnswer" style="display: none">Answer: ' + array[i].answer +'</span>' + 
+//                 '<button type="button" class="btn btn-default buttonText" onclick="submitAnswer(' + array[i].answer + ')">Submit</button>' + 
+//                 '</div>'
+//     }
+//     return html
+// }
 
-function submitAnswer(answer){
-    if(answerChosen === answer){
-        $('.finalAnswer').css('color', 'green')
-    }else{
-        $('.finalAnswer').css('color', 'red')
-    }
-    $('.finalAnswer').css('display', 'block')
-    $('.inputValue').attr('disabled', true)
-    $('.buttonText').text('Next')
-}
+// function submitAnswer(answer){
+//     if(answerChosen === answer){
+//         $('.finalAnswer').css('color', 'green')
+//     }else{
+//         $('.finalAnswer').css('color', 'red')
+//     }
+//     $('.finalAnswer').css('display', 'block')
+//     $('.inputValue').attr('disabled', true)
+//     $('.buttonText').text('Next')
+// }
 
-function chooseValue(answer){
-    answerChosen = answer;
-}
+// function chooseValue(answer){
+//     answerChosen = answer;
+// }

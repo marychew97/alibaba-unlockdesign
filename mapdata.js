@@ -71,42 +71,118 @@ var simplemaps_countrymap_mapdata={
   state_specific: {
     MYS1137: {
       name: renderTitle('Perak', 'perak.png'),
-      description: "default",
+      description: renderBody([
+        {
+            title: 'Ipoh is the capital city of Perak. What is t well known for besides great food, and limestone mountains and caves?',
+            image: 'ipoh_mountain.jpg',
+            choices: ['Tin mines', 'Seafoods', 'Mangroves'],
+            answer: 'Tin mines'
+        },
+        {
+            title: 'How tall is the Lord Murugan Statue in Batu Caves?',
+            image: 'batucaves.jpg',
+            choices: ['122.0 meters', '42.7 meters', '43.5 meters'],
+            answer: '42.7 meters'
+        }
+    ]),
       color: "#f29400",
       hover_color: "default",
       url: "default"
     },
     MYS1139: {
       name: renderTitle('Pulau Pinang', 'penang.png'),
+      description: renderBody([
+        {
+            title: 'The name Penang comes from the Malay word Pinang, means the betel nut tree. The original name of Penang was Pulau Ka-satu or “First Island”, but on August 12, 1786 it was it renamed. What was the name?',
+            image: 'penangbridge.jpg',
+            choices: ['Prince of Wonderland Island', 'Prince of Settlefield Island', 'Prince of Wales Island'],
+            answer: 'Prince of Wales Island'
+        }
+    ]),
       color: '#2e3194'
     },
     MYS1140: {
       name: renderTitle('Kedah', 'kedah.png'),
+      description: renderBody([
+        {
+            title: 'As we all know, Kedah produces more than half of the country\'s home grown rice supply. But do you know Kedah has a name that is related to "Rice"?',
+            image: 'paddy.jpg',
+            choices: ['The Rice Box', 'The Rice Tank', 'The Rice Bowl', 'The Rice and Noodle'],
+            answer: 'The Rice Bowl'
+        }
+    ]),
       color: '#ed1e79'
     },
     MYS1141: {
       name: renderTitle('Perlis', 'perlis.png'),
+      description: renderBody([
+          {
+              title: 'Kota Kayang Museum is also known as the Perlis State Museum. What does it showcase?',
+              image: 'kotakayang.jpg',
+              choices: ['3D Drawings and paintings', 'Antique furnitures', 'History and culture of the area and the ruling family'],
+              answer: 'History and culture of the area and the ruling family'
+          }
+      ]),
       color: '#0071bd'
     },
     MYS1143: {
       name: renderTitle('Johor', 'johor.png'),
+      description: renderBody([
+        {
+            title: 'Johor has the most theme parks in the whole country. How many theme parks in Johor?',
+            image: 'legoland.jpg',
+            choices: [9, 13, 6],
+            answer: 9
+        }
+    ]),
       color: "#f8931f"
     },
     MYS1144: {
       name: renderTitle('Kelantan', 'kelantan.svg'),
+      description: renderBody([
+        {
+            title: 'Kelantan is located in the north-eastern corner of the Peninsula, Kelantan, which is said to translate as the "Land of Lightning", is an agrarian state with lush paddy fields, rustic fishing villages and casuarina-lined beaches. Kelantan is home to some of the most ancient archaeological discoveries in Malaysia, including several prehistoric aboriginal settlements. There is one pasar named as Pasar Khadijah, wife of Prophet Muhammad, Khadija bint Khuwaylid. Why?',
+            image: 'pasarkhadijah.jpg',
+            choices: ['Because it is dominated by Womensellers', 'Because Kelantan is known as the most Islamic state', 'Because Kelantan has a lot of women'],
+            answer: 'Because it is dominated by Womensellers'
+        }
+    ]),
       color: "#803789"
     },
     MYS1145: {
       name: renderTitle('Melaka', 'melaka.svg'),
+      description: renderBody([
+        {
+            title: 'A Famosa is one of the most visited sightseeing spot in Melaka. Who constructed A Famosa?',
+            image: 'afamosa.jpg',
+            choices: ['JWW Birch', 'Alfonso de Albuquerque', 'Sir Stamford Raffles'],
+            answer: 'Alfonso de Albuquerque'
+        }
+    ]),
       color: "#803789"
     },
     MYS1146: {
       name: renderTitle('Negeri Sembilan', 'negerisem.png'),
+      description: renderBody([
+        {
+            title: 'Negeri Sembilan is named as the ninth state. What does Negeri Sembilan mean?',
+            image: 'minangkabau.jpg',
+            choices: ['Land of the Nine Districts', 'Land of the Nine States', 'Land of the Nine Towns'],
+            answer: 'Land of the Nine States'
+        }
+    ]),
       color: "#3ab54a"
     },
     MYS1147: {
       name: renderTitle('Pahang', 'pahang.png'),
-      description: '',
+      description: renderBody([
+        {
+            title: 'Bukit Tinggi is a small town in Bentong district of Pahang, Malaysia. This small town is located along Kuala Lumpur–Karak Expressway, notable for its famous restaurants that lure visitors coming from Genting Highlands. There are several notable attractions in Bukit Tinggi. Which of the following is one of the attractions?',
+            image: 'bukittinggi.jpg',
+            choices: ['Colmar Tropicale', 'Fraser\'s Hill', 'Elephant Sanctuary'],
+            answer: 'Colmar Tropicale'
+        }
+    ]),
       color: "#e3001b"
     },
     MYS1148: {
@@ -133,22 +209,62 @@ var simplemaps_countrymap_mapdata={
     },
     MYS1186: {
       name: renderTitle('Sabah', 'sabah.png'),
+      description: renderBody([
+        {
+            title: 'Dairy farm in Malaysia recently gained attention for its uncanny resemblance to the scenic New Zealand grasslands. Where is it located?',
+            image: 'dairyfarm.jpg',
+            choices: ['Kota Kinabalu', 'Kundasang', 'Sandakan', 'Semporna'],
+            answer: 'Kundasang'
+        }
+    ]),
       color: "#0071bd"
     },
     MYS1187: {
       name: renderTitle('Sarawak', 'sarawak.png'),
+      description: renderBody([
+        {
+            title: 'Kuching is the capital city of Sarawak. It was named as Kuching because it is where James Brooke referred to the Kuching City as “Kuchin”. It bore resemblance to the old word “Cochin” which being commonly used in India or Indochina. What does "Cochin" mean?',
+            image: 'kuching.jpg',
+            choices: ['Cat', 'River', 'Port', 'Island'],
+            answer: 'Port'
+        }
+    ]),
       color: "#803789"
     },
     MYS4831: {
       name: renderTitle("Federal Territory of Kuala Lumpur", 'kualalumpur.png'),
+      description: renderBody([
+        {
+            title: 'KL Tower is always come to our mind when we talk about Kuala Lumpur. It was the tallest building between year 1998 and 2004. How high it is?',
+            image: 'kltower.jpg',
+            choices: ['400.0m', '421.3m', '451.9m', '488.8m'],
+            answer: '451.9m'
+        }
+    ]),
       color: "#fd940f"
     },
     MYS4832: {
       name: renderTitle("Federal Territory of Putrajaya", 'putrajaya.png'),
+      description: renderBody([
+        {
+            title: '38% of the area in Putrajaya is made up of parks, lakes and wetlands. The remaining areas are for offices, commercial and residential developments, public utilities and amenities. This development is known as _______',
+            image: 'putrajaya_masjid.jpeg',
+            choices: ['City in a Garden', 'Garden in a City', 'The Pink Palace'],
+            answer: 'City in a Garden'
+        }
+    ]),
       color: "#e31370"
     },
     MYS4833: {
       name: renderTitle("Federal Territory of Labuan", 'labuan.png'),
+      description: renderBody([
+        {
+            title: 'Local kuihs are popular in Labuan and are mostly sold in the weekend market. Which of the following is the most popular kuih in Labuan?',
+            image: 'kelupis.jpg',
+            choices: ['Seri muka', 'Kuih lapis', 'Kelupis'],
+            answer: 'Kelupis'
+        }
+    ]),
       color: "#f8931f"
     }
   },
@@ -240,7 +356,7 @@ var simplemaps_countrymap_mapdata={
 };
 
 function renderTitle(name, img){
-  return "<img src='images/" + img + "' class='stateImg'/> " + name;
+  return "<img src='images/" + img + "' class='stateImg'/> " + name + "</span>";
 }
 
 function renderBody(array){
@@ -250,18 +366,37 @@ function renderBody(array){
     for(var i=0; i<array.length; i++){
         var choices = array[i].choices;
         var inputs = '';
+        // var answer = array[i].answer.indexOf(' ') > 0 ? array[i].answer.split(' ').join('_') : array[i].answer;
         for(var j=0; j<choices.length; j++){
-            inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(' + choices[j] + ')"/>' + choices[j] + '</span>';
+            // var choiceName = choices[j].indexOf(' ') > 0 ? choices[j].split(' ').join('_') : choices[j];
+            inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(\'' + choices[j] + '\')"/>' + choices[j] + '</span>';
         }
 
         html += '<div class="contents">' +
                 '<span>' + array[i].title + '</span>' +
                 '<img src="images/' + array[i].image + '" class="contentImg"/>'+ inputs +
                 '<br/><span class="finalAnswer" style="display: none">Answer: ' + array[i].answer +'</span>' + 
-                '<button type="button" class="btn btn-primary buttonText" onclick="submitAnswer(' + array[i].answer + ')">Submit</button>' + 
+                '<button type="button" class="btn btn-primary buttonSubmitText" onclick="submitAnswer(\'' + array[i].answer + '\')">Submit</button>' + 
                 '</div>'
     }
+
     return html
+}
+
+function submitAnswer(answer){
+  if(answer && answerChosen === answer){
+      $('.finalAnswer').css('color', 'green')
+  }else{
+      $('.finalAnswer').css('color', 'red')
+  }
+  $('.finalAnswer').css('display', 'block')
+  $('.inputValue').attr('disabled', true)
+  $('.buttonSubmitText').text('Next')
+}
+
+function chooseValue(answer){
+  console.log(answer)
+  answerChosen = answer;
 }
 
 function renderPahangFunc(){
