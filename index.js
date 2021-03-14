@@ -89,8 +89,6 @@
 //     template: "<div class='popover tour'><div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <button class='btn btn-default' data-role='prev'>« Prev</button> <span data-role='separator'>|</span> <button class='btn btn-default' data-role='next'>Next »</button></div><button class='btn btn-default' data-role='end'>End tour</button></div>"
 // });
 
-
-
 // Initialize the tour
 // tour.init();
 
@@ -153,7 +151,7 @@ var languagesQuests = [
         correctAnswer: 'Take away'
     },
     {
-        question: 'What is the meaning of “walao / Walao Eh”?',
+        question: 'What is the meaning of “Walao/Walao Eh”?',
         choices: ['What is that', 'What the hell', 'I don’t care'],
         correctAnswer: 'What the hell'
     },
