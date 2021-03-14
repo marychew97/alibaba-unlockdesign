@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/css/bootstrap-tour.css" rel="stylesheet"/> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -16,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     
-
     <!-- bootstrap tour -->
     <!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/css/bootstrap-tour.css" rel="stylesheet"/>
@@ -24,11 +18,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script src="http://cdn.jsdelivr.net/bootstrap-tour/0.9.1/js/bootstrap-tour.min.js"></script> -->
+    
     <script src="mapdata.js"></script>
     <script src="countrymap.js"></script>
     <link rel="stylesheet" href="index.css"/>
     <script src="index.js"></script>
-    <title>Document</title>
+    <title>Malaysia</title>
 </head>
 
 <body>
@@ -40,69 +35,58 @@
             </video>
             <div id="map" style="display:none"></div>
             <div id="mapContent">
-                <!-- <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h3 class="panel-title"><span>What Makes Malaysia Special?</span></h3>
-                    </div>
-                    <div class="panel-body">
-                        <span>Welcome to Malaysia! To test your general knowledge about Malaysia, <span id="startTour">start the tour!</span></span>
-                        <div class="buttonSection">
-                            <button id="handGestures">Hand Gestures</button>
-                            <button id="languages">Languages</button>
-                            <button id="holidays">Holidays</button>
-                            <button id="localFoods">Local foods</button>
+                <div class="buttonSection">
+                    <button class="btn btn-primary btnIcon" data-toggle="modal" data-target="#handGestures"><i class="fa fa-handshake-o icon" aria-hidden="true"></i><br/><span class="buttonText">Hand Gestures</span></button>
+                    <button class="btn btn-primary btnIcon" data-toggle="modal" data-target="#languages"><i class="fa fa-language icon" aria-hidden="true"></i><br/><span class="buttonText">Languages</span></button>
+                    
+                    <!-- Hand Gestures modal -->
+                    <div class="modal fade" id="handGestures" tabindex="-1" role="dialog" aria-labelledby="handGesturesLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header" style="background-color: #f29400;">
+                                    <h5 class="modal-title" id="handGesturesLabel">Common Hand Gestures in Malaysia</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div id="handGesturesQuiz"></div>
+                                    <div class="buttonSection">
+                                        <div class='btn' data-toggle="tooltip" data-placement="left" title="Previous" style="background-color: #f29400;" id='handGesturesQuizprev'><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                                        <div class='btn' data-toggle="tooltip" data-placement="left" title="Next" style="background-color: #f29400;" id='handGesturesQuiznext'><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                                        <div class='btn' data-toggle="tooltip" data-placement="left" title="Start over" style="background-color: #f29400;" id='handGesturesQuizstart'><i class="fa fa-refresh" aria-hidden="true"></i><div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div> -->
-                <div class="buttonSection">
-                    <!-- <button id="tourStart" rel='popover' data-placement='left' data-content='Its so simple to create a tooltop for my website!' data-original-title='Twitter Bootstrap Popover' class="btn btn-primary">Start Tour</button> -->
-                    <button id="handGestures" class="btn btn-primary btnIcon"><i class="fa fa-handshake-o icon" aria-hidden="true"></i><br/><span class="buttonText">Hand Gestures</span></button>
-                    <button id="languages" class="btn btn-primary btnIcon"><i class="fa fa-language icon" aria-hidden="true"></i><br/><span class="buttonText">Languages</span></button>
-                    <button id="holidays" class="btn btn-primary btnIcon"><i class="fa fa-plane icon" aria-hidden="true"></i><br/><span class="buttonText">Holidays</span></button>
-                    <button id="localFoods" class="btn btn-primary btnIcon"><i class="fa fa-cutlery icon" aria-hidden="true"></i><br/><span class="buttonText">Local Foods</span></button>
                 </div>
             </div>
-            
-        <!-- </div> -->
+
+            <!-- Languages modal -->
+            <div class="modal fade" id="languages" tabindex="-1" role="dialog" aria-labelledby="languagesLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header" style="background-color: #803789; color: #fff">
+                      <h5 class="modal-title" id="languagesLabel">Rojak Languages in Malaysia</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" style="color:#fff">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="languagesQuiz"></div>
+                        <div class="buttonSection">
+                            <div class='btn' data-toggle="tooltip" data-placement="left" title="Previous" style="background-color: #803789; color: #fff" id='languagesQuizprev'><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                            <div class='btn' data-toggle="tooltip" data-placement="left" title="Next" style="background-color: #803789; color: #fff" id='languagesQuiznext'><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+                            <div class='btn' data-toggle="tooltip" data-placement="left" title="Start over" style="background-color: #803789; color: #fff" id='languagesQuizstart'><i class="fa fa-refresh" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
     </div>
     <div id="Div-B" style="display: block">
-        <!-- <div class="textSectionOne">
-            <span>What Makes Malaysia</span>
-            <div class="buttonSection">
-                <button id="handGestures">Hand Gestures</button>
-                <button id="languages">Languages</button>
-                <button id="holidays">Holidays</button>
-                <button id="localFoods">Local foods</button>
-            </div>
-        </div> -->
-        
-        
-        <!-- <img src="map1.png" alt="map" class="mapImg"> -->
-        <!-- <div class="states">
-            <div id="perlis"></div>
-            <div id="kedah"></div>
-            <div id="kelantan"></div>
-            <div id="penang"></div>
-            <div id="perak"></div>
-            <div id="selangor"></div>
-            <div id="pahang"></div>
-            <div id="terengganu"></div>
-            <div id="negsembilan"></div>
-            <div id="melaka"></div>
-            <div id="johor"></div>
-            <div id="sarawak"></div>
-            <div id="sabah"></div>
-        </div> -->
-        
-        <!-- <div class="textSectionTwo">
-            <span>Special?</span>
-        </div> -->
     </div>
-
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
-    <!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
-    <!-- <script src="http://cdn.jsdelivr.net/bootstrap-tour/0.9.1/js/bootstrap-tour.min.js"></script> -->
 </body>
 
 </html>

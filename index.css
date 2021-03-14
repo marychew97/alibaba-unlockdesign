@@ -81,6 +81,11 @@ body{
 	}
 }
 
+/* overwrite default map css */
+#tt_sm_map{
+    max-width: 40rem !important;
+}
+
 .states{
     position: absolute;
     top: 15rem;
@@ -89,8 +94,9 @@ body{
 }
 
 .stateImg{
-    width: 3rem;
+    width: 4rem;
     height: auto;
+    margin-right:0.5rem;
 }
 
 .contents{
@@ -102,7 +108,7 @@ body{
 }
 
 .contentImg{
-    width: 70%;
+    width: 50%;
     display: block;
     margin: 0 auto;
     padding-top: 1rem;
@@ -144,4 +150,30 @@ body{
 .popover{
     width: 100%;
     /* max-width: 30% */
+}
+
+.buttonSubmitText{
+    background: rgb(64, 153, 180);
+    color: #fff;
+}
+
+/* Modal questions */
+.questionImg{
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.choiceList{
+    list-style: none;
+}
+
+.choicelabel{
+    padding-left: 0.5rem
+}
+
+.listSection{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
 }

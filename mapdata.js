@@ -16,7 +16,7 @@ var simplemaps_countrymap_mapdata={
     all_states_zoomable: "yes",
     
     //Location defaults
-    location_description: "Location description",
+    location_description: "",
     location_url: "",
     location_color: "#FF0067",
     location_opacity: 0.8,
@@ -73,7 +73,7 @@ var simplemaps_countrymap_mapdata={
       name: renderTitle('Perak', 'perak.png'),
       description: renderBody([
         {
-            title: 'Ipoh is the capital city of Perak. What is t well known for besides great food, and limestone mountains and caves?',
+            title: 'Ipoh is the capital city of Perak. What is the well known for besides great food, and limestone mountains and caves?',
             image: 'ipoh_mountain.jpg',
             choices: ['Tin mines', 'Seafoods', 'Mangroves'],
             answer: 'Tin mines'
@@ -205,6 +205,14 @@ var simplemaps_countrymap_mapdata={
     },
     MYS1149: {
       name: renderTitle('Terengganu', 'terengganu.png'),
+      description: renderBody([
+        {
+            title: 'Pulau Redang is an island in Kuala Nerus District, Terengganu. It is famous for its crystal clear waters and white sandy beaches. It is also one of the islands that form a marine sanctuary park offering snorkeling and diving opportunities for tourists. There was a movie being filmed in Pulau Redang. What was the movie?',
+            image: 'pulauredang.jpg',
+            choices: ['The Blue Lagoon', 'Summer Holiday', 'Just Go With It', 'The Shallows'],
+            answer: 'Summer Holiday'
+        }
+    ]),
       color: "#3ab54a"
     },
     MYS1186: {
@@ -277,68 +285,67 @@ var simplemaps_countrymap_mapdata={
     "1": {
       lat: "4.61175",
       lng: "101.113506",
-      name: "Ipoh",
-      description: "Ipoh is my hometown"
+      name: "Ipoh, Perak",
     },
     "2": {
       lat: "6.4406",
       lng: "100.1984",
-      name: "Kangar"
+      name: "Kangar, Perlis"
     },
     "3": {
       lat: "5.4141",
       lng: "100.3288",
-      name: "George Town"
+      name: "George Town, Pulau Pinang"
     },
     "4": {
       lat: "3.7634",
       lng: "103.2202",
-      name: "Kuantan"
+      name: "Kuantan, Pahang"
     },
     "5": {
       lat: "6.1263",
       lng: "100.3672",
-      name: "Alor Setar"
+      name: "Alor Setar, Kedah"
     },
     "6": {
       lat: "1.4927",
       lng: "103.7414",
-      name: "Johor Bahru"
+      name: "Johor Bahru, Johor"
     },
     "7": {
       lat: "6.1248",
       lng: "102.2544",
-      name: "Kota Bharu"
+      name: "Kota Bharu, Kelantan"
     },
     "8": {
       lat: "2.1896",
       lng: "102.2501",
-      name: "Malacca"
+      name: "Melaka, Melaka"
     },
     "9": {
       lat: "2.7259",
       lng: "101.9378",
-      name: "Seremban"
+      name: "Seremban, Negeri Sembilan"
     },
     "10": {
       lat: "3.0733",
       lng: "101.5185",
-      name: "Shah Alam"
+      name: "Shah Alam, Selangor"
     },
     "11": {
       lat: "5.3296",
       lng: "103.1370",
-      name: "Kuala Terengganu"
+      name: "Kuala Terengganu, Terengganu"
     },
     "12": {
       lat: "1.5535",
       lng: "110.3593",
-      name: "Kuching"
+      name: "Kuching, Sarawak"
     },
     "13": {
       lat: "5.9804",
       lng: "116.0735",
-      name: "Kota Kinabalu"
+      name: "Kota Kinabalu, Sabah"
     },
     "14": {
       lat: "2.9264",
@@ -355,12 +362,13 @@ var simplemaps_countrymap_mapdata={
   regions: {}
 };
 
+var answerChosen = '';
+
 function renderTitle(name, img){
-  return "<img src='images/" + img + "' class='stateImg'/> " + name + "</span>";
+  return "<img src='images/" + img + "' class='stateImg'/><span style='display: inline; font-size: 1rem;'>" + name + "</span></span>";
 }
 
 function renderBody(array){
-    console.log(array)
     var html = ''
     
     for(var i=0; i<array.length; i++){
@@ -369,14 +377,14 @@ function renderBody(array){
         // var answer = array[i].answer.indexOf(' ') > 0 ? array[i].answer.split(' ').join('_') : array[i].answer;
         for(var j=0; j<choices.length; j++){
             // var choiceName = choices[j].indexOf(' ') > 0 ? choices[j].split(' ').join('_') : choices[j];
-            inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(\'' + choices[j] + '\')"/>' + choices[j] + '</span>';
+            inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(\'' + choices[j] + '\')"/>' + choices[j] + '</span><br/>';
         }
 
         html += '<div class="contents">' +
                 '<span>' + array[i].title + '</span>' +
                 '<img src="images/' + array[i].image + '" class="contentImg"/>'+ inputs +
                 '<br/><span class="finalAnswer" style="display: none">Answer: ' + array[i].answer +'</span>' + 
-                '<button type="button" class="btn btn-primary buttonSubmitText" onclick="submitAnswer(\'' + array[i].answer + '\')">Submit</button>' + 
+                '<button type="button" class="btn buttonSubmitText" onclick="submitAnswer(\'' + array[i].answer + '\')">Submit</button>' + 
                 '</div>'
     }
 
@@ -386,19 +394,18 @@ function renderBody(array){
 function submitAnswer(answer){
   if(answer && answerChosen === answer){
       $('.finalAnswer').css('color', 'green')
+      $('.buttonSubmitText').text('Excellent!');
+      $('.buttonSubmitText').attr('disabled', true)
   }else{
       $('.finalAnswer').css('color', 'red')
+      $('.buttonSubmitText').text('Oops!');
+      $('.buttonSubmitText').attr('disabled', true)
   }
   $('.finalAnswer').css('display', 'block')
   $('.inputValue').attr('disabled', true)
-  $('.buttonSubmitText').text('Next')
+  
 }
 
 function chooseValue(answer){
-  console.log(answer)
   answerChosen = answer;
-}
-
-function renderPahangFunc(){
-  console.log('testing')
 }

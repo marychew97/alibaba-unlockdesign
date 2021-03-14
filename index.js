@@ -8,7 +8,7 @@
 //     },
 //     {
 //         element: "#startTour",
-//         title: "General Quiz of Malaysia's States",
+//         title: "General hgquiz of Malaysia's States",
 //         content: "This is to help you to understand the story behind of each state"
 //     },
 //     {
@@ -89,10 +89,81 @@
 //     template: "<div class='popover tour'><div class='arrow'></div> <h3 class='popover-title'></h3> <div class='popover-content'></div> <div class='popover-navigation'> <button class='btn btn-default' data-role='prev'>« Prev</button> <span data-role='separator'>|</span> <button class='btn btn-default' data-role='next'>Next »</button></div><button class='btn btn-default' data-role='end'>End tour</button></div>"
 // });
 
-var answerChosen = '';
+
 
 // Initialize the tour
 // tour.init();
+
+var handGesturesQuests = [
+    {
+        question: 'What does this hand gesture mean?',
+        image: 'getbill.gif',
+        choices: ['Get bill', 'Get menu', 'Get waiters'],
+        correctAnswer: 'Get bill'
+    },
+    {
+        question: 'What does this hand gesture mean?',
+        image: 'getmenu.gif',
+        choices: ['Get money', 'Get menu', 'Get food from others'],
+        correctAnswer: 'Get menu'
+    },
+    {
+        question: 'When will you use this hand gesture?',
+        image: 'donemeal.webp',
+        choices: ['When you wish to order the food', 'When you want to complain about the food', 'After done your meal'],
+        correctAnswer: 'After done your meal'
+    },
+    {
+        question: 'When will you use this hand gesture?',
+        image: 'crossroadHand.png',
+        choices: ['When you don’t let people talk', 'When you are crossing the road', 'When you are meeting someone'],
+        correctAnswer: 'When you are crossing the road'
+    },
+]
+
+var languagesQuests = [
+    {
+        question: 'Which of the following is the correct way that Malaysians express yes?',
+        choices: ['Ya lah, Ya loh, Ya hor', 'Ya hor, Ya loh, Ya mie', 'Ya lah, Ya ka, Ya hor'],
+        correctAnswer: 'Ya lah, Ya loh, Ya hor'
+    },
+    {
+        question: 'What is the meaning of Pokai?',
+        choices: ['Fall down', 'No money', 'Get caught by someone', 'All the above'],
+        correctAnswer: 'All the above'
+    },
+    {
+        question: 'What is the meaning of Gostan?',
+        choices: ['To reverse a vehicle', 'To stop the vehicle', 'To park the vehicle'],
+        correctAnswer: 'To reverse a vehicle'
+    },
+    {
+        question: 'What is the meaning of Cincai?',
+        choices: ['I have no question', 'I\'m not fussy, everything is fine for me', 'Be faster'],
+        correctAnswer: 'I\'m not fussy, everything is fine for me'
+    },
+    {
+        question: 'What is the meaning of Chup?',
+        choices: ['A kind of sauce', 'The sound when you are chewing', 'Wait a moment'],
+        correctAnswer: 'Wait a moment'
+    },
+    {
+        question: 'What is the meaning of Tapau?',
+        choices: ['Take away', 'Pack a food', 'A kind of food'],
+        correctAnswer: 'Take away'
+    },
+    {
+        question: 'What is the meaning of “walao / Walao Eh”?',
+        choices: ['What is that', 'What the hell', 'I don’t care'],
+        correctAnswer: 'What the hell'
+    },
+]
+
+var questionCounterHand = 0; //Tracks question number
+var selectionsHand = []; //Array containing user choices
+var questionCounterLang = 0; //Tracks question number
+var selectionsLang = []; //Array containing user choices
+var hgquiz = $('#handGesturesQuiz'); //Quiz div object
 
 window.onload = function () {
             setTimeout(
@@ -101,23 +172,103 @@ window.onload = function () {
                     $('#map').css('display', 'block')
                     // $('#Div-A').replaceWith($('#Div-B'));
                     // $('#Div-B').addClass('showMap');
+                    alert('Welcome to Malaysia! Visit each state by clicking it and answer the quiz.')
                     // Start the tour
                     // tour.start();
-                    $('#handGestures').on('click', function(){
-                        alert('hand gestures')
-                    })
+                    displayNextHand();
+                    displayNextLang();
+                      // Click handler for the 'next' button
+                    $('#handGesturesQuiznext').on('click', function (e) {
+                        e.preventDefault();
+                        // Suspend click listener during fade animation
+                        // if($('#handGesturesQuiz').is(':animated')) {        
+                        // return false;
+                        // }
+                        chooseHand();
+                        
+                        // If no user selection, progress is stopped
+                        if (!(selectionsHand[questionCounterHand])) {
+                        alert('Please make a selection!');
+                        } else {
+                        questionCounterHand++;
+                        displayNextHand();
+                        }
+                    });
                     
-                    $('#languages').on('click', function(){
-                        alert('languages')
-                    })
+                    // Click handler for the 'prev' button
+                    $('#handGesturesQuizprev').on('click', function (e) {
+                        e.preventDefault();
+                        
+                        // if($('#handGesturesQuiz').is(':animated')) {
+                        // return false;
+                        // }
+                        chooseHand();
+                        questionCounterHand--;
+                        displayNextHand();
+                    });
                     
-                    $('#holidays').on('click', function(){
-                        alert('holidays')
-                    })
+                    // Click handler for the 'Start Over' button
+                    $('#handGesturesQuizstart').on('click', function (e) {
+                        e.preventDefault();
+                        
+                        // if($('#handGesturesQuiz').is(':animated')) {
+                        // return false;
+                        // }
+                        questionCounterHand = 0;
+                        selectionsHand = [];
+                        displayNextHand();
+                        $('#handGesturesQuizstart').hide();
+                    });
+
+                    $('#languagesQuiznext').on('click', function (e) {
+                        e.preventDefault();
+                        // Suspend click listener during fade animation
+                        // if($('#languagesQuiz').is(':animated')) {        
+                        // return false;
+                        // }
+                        chooseLang();
+                        
+                        // If no user selection, progress is stopped
+                        if (!(selectionsLang[questionCounterLang])) {
+                        alert('Please make a selection!');
+                        } else {
+                        questionCounterLang++;
+                        displayNextLang();
+                        }
+                    });
                     
-                    $('#localFoods').on('click', function(){
-                        alert('local foods')
-                    })
+                    // Click Langler for the 'prev' button
+                    $('#languagesQuizprev').on('click', function (e) {
+                        e.preventDefault();
+                        
+                        // if($('#languagesQuiz').is(':animated')) {
+                        // return false;
+                        // }
+                        chooseLang();
+                        questionCounterLang--;
+                        displayNextLang();
+                    });
+                    
+                    // Click Langler for the 'Start Over' button
+                    $('#languagesQuizstart').on('click', function (e) {
+                        e.preventDefault();
+                        
+                        // if($('#languagesQuiz').is(':animated')) {
+                        // return false;
+                        // }
+                        questionCounterLang = 0;
+                        selectionsLang = [];
+                        displayNextLang();
+                        $('#languagesQuizstart').hide();
+                    });
+                    
+                    // Animates buttons on hover
+                    $('.button').on('mouseenter', function () {
+                        $(this).addClass('active');
+                    });
+                    $('.button').on('mouseleave', function () {
+                        $(this).removeClass('active');
+                    });
 
                     $(function () { 
                         $("#tourStart").popover('show');
@@ -125,69 +276,183 @@ window.onload = function () {
                 },
                 5000
             );
-            
         };
 
-        $(function () {
-            $('[data-toggle="popover"]').popover()
-          })
+$(function () {
+    $('[data-toggle="popover"]').popover()
+})
 
-         
-
-// function renderTitle(img, name){
-//     return "<img src='images/" + img + "' alt='" + img + "' class='stateImg'/> " + name; 
-// }
-
-// function perlisContent(){
-//     return '<span>perlis quiz</span>'
-// }
-
-// function selangorContent(){
-//     var array = [
-//         {
-//             title: 'How many pasar malam are there in Selangor?',
-//             image: 'pasarmalam.jpeg',
-//             choices: [75, 135, 265],
-//             answer: 135
-//         },
-//         {
-//             title: 'How tall is the Lord Murugan Statue in Batu Caves?',
-//             image: 'batucaves.jpg',
-//             choices: ['122.0 meters', '42.7 meters', '43.5 meters'],
-//             answer: '42.7 meters'
-//         }
-//     ]
-//     console.log(array)
-//     var html = ''
+  // Creates and returns the div that contains the questions and 
+  // the answer selectionsHand
+function createQuestionElementHand(index) {
+    var qElement = $('<div>', {
+      id: 'question'
+    });
     
-//     for(var i=0; i<array.length; i++){
-//         var choices = array[i].choices;
-//         var inputs = '';
-//         for(var j=0; j<choices.length; j++){
-//             inputs += '<span class="inputChoice"><input type="radio" value="' + choices[j] + '" name="choice" class="inputValue" onchange="chooseValue(' + choices[j] + ')"/>' + choices[j] + '</span>';
-//         }
+    var header = $('<h4>Question ' + (index + 1) + ':</h4>');
+    qElement.append(header);
 
-//         html += '<div class="contents">' +
-//                 '<span>' + array[i].title + '</span>' +
-//                 '<img src="images/' + array[i].image + '" class="contentImg"/>'+ inputs +
-//                 '<br/><span class="finalAnswer" style="display: none">Answer: ' + array[i].answer +'</span>' + 
-//                 '<button type="button" class="btn btn-default buttonText" onclick="submitAnswer(' + array[i].answer + ')">Submit</button>' + 
-//                 '</div>'
-//     }
-//     return html
-// }
+    var image = $('<image src="images/' + handGesturesQuests[index].image + '" alt="' + handGesturesQuests[index].image + '" class="questionImg"/>');
+    qElement.append(image);
+    
+    var question = $('<p>').append(handGesturesQuests[index].question);
+    qElement.append(question);
+    
+    var radioButtons = createRadiosHand(index);
+    qElement.append(radioButtons);
+    
+    return qElement;
+}
+  
+  // Creates a list of the answer choices as radio inputs
+function createRadiosHand(index) {
+    var radioList = $('<ul class="listSection">');
+    var item;
+    var input = '';
+    for (var i = 0; i < handGesturesQuests[index].choices.length; i++) {
+        item = $('<li class="choiceList">');
+        input = '<input type="radio" name="answer" value="' + handGesturesQuests[index].choices[i] + '"/>';
+        input += '<span class="choicelabel">' + handGesturesQuests[index].choices[i] + '</span>';
+        item.append(input);
+        radioList.append(item);
+    }
+    return radioList;
+}
+  
+  // Reads the user selection and pushes the value to an array
+function chooseHand() {
+    if($('input[name="answer"]:checked').val() !== undefined){
+        selectionsHand.push($('input[name="answer"]:checked').val());
+    }
+    
+    console.log(selectionsHand)
+}
 
-// function submitAnswer(answer){
-//     if(answerChosen === answer){
-//         $('.finalAnswer').css('color', 'green')
-//     }else{
-//         $('.finalAnswer').css('color', 'red')
-//     }
-//     $('.finalAnswer').css('display', 'block')
-//     $('.inputValue').attr('disabled', true)
-//     $('.buttonText').text('Next')
-// }
+function displayNextHand() {
+    $('#question').remove();
+    
+    if(questionCounterHand < handGesturesQuests.length){
+      var nextQuestion = createQuestionElementHand(questionCounterHand);
+      $('#handGesturesQuiz').append(nextQuestion).show();
+      if (!(selectionsHand[questionCounterHand])) {
+        $('input[value='+selectionsHand[questionCounterHand]+']').prop('checked', true);
+      }
+      
+      // Controls display of 'prev' button
+      if(questionCounterHand === 1){
+        $('#handGesturesQuizprev').show();
+      } else if(questionCounterHand === 0){
+        
+        $('#handGesturesQuizprev').hide();
+        $('#handGesturesQuiznext').show();
+      }
+    }else {
+      var scoreElem = displayScoreHand();
+      $('#handGesturesQuiz').append(scoreElem).show();
+      $('#handGesturesQuiznext').hide();
+      $('#handGesturesQuizprev').hide();
+      $('#handGesturesQuizstart').show();
+      
+    }
+}
 
-// function chooseValue(answer){
-//     answerChosen = answer;
-// }
+// Computes score and returns a paragraph element to be displayed
+function displayScoreHand() {
+    var score = $('<p>',{id: 'question'});
+    
+    var numCorrect = 0;
+    for (var i = 0; i < selectionsHand.length; i++) {
+      if (selectionsHand[i] === handGesturesQuests[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
+    
+    score.append('You got ' + numCorrect + ' questions out of ' +
+                 handGesturesQuests.length + ' right!!!');
+    return score;
+}
+
+function createQuestionElementLang(index) {
+    var qElement = $('<div>', {
+      id: 'questionLang'
+    });
+    
+    var header = $('<h4>Question ' + (index + 1) + ':</h4>');
+    qElement.append(header);
+    
+    var question = $('<p>').append(languagesQuests[index].question);
+    qElement.append(question);
+    
+    var radioButtons = createRadiosLang(index);
+    qElement.append(radioButtons);
+    
+    return qElement;
+}
+  
+  // Creates a list of the answer choices as radio inputs
+function createRadiosLang(index) {
+    var radioList = $('<ul class="listSection">');
+    var item;
+    var input = '';
+    for (var i = 0; i < languagesQuests[index].choices.length; i++) {
+        item = $('<li class="choiceList">');
+        input = '<input type="radio" name="answer" value="' + languagesQuests[index].choices[i] + '"/>';
+        input += '<span class="choicelabel">' + languagesQuests[index].choices[i] + '</span>';
+        item.append(input);
+        radioList.append(item);
+    }
+    return radioList;
+}
+  
+  // Reads the user selection and pushes the value to an array
+function chooseLang() {
+    if($('input[name="answer"]:checked').val() !== undefined){
+        selectionsLang.push($('input[name="answer"]:checked').val());
+    }
+    
+    console.log(selectionsLang)
+}
+
+function displayNextLang() {
+    $('#questionLang').remove();
+    
+    if(questionCounterLang < languagesQuests.length){
+      var nextQuestion = createQuestionElementLang(questionCounterLang);
+      $('#languagesQuiz').append(nextQuestion).show();
+      if (!(selectionsLang[questionCounterLang])) {
+        $('input[value='+selectionsLang[questionCounterLang]+']').prop('checked', true);
+      }
+      
+      // Controls display of 'prev' button
+      if(questionCounterLang === 1){
+        $('#languagesQuizprev').show();
+      } else if(questionCounterLang === 0){
+        
+        $('#languagesQuizprev').hide();
+        $('#languagesQuiznext').show();
+      }
+    }else {
+      var scoreElem = displayScoreLang();
+      $('#languagesQuiz').append(scoreElem).show();
+      $('#languagesQuiznext').hide();
+      $('#languagesQuizprev').hide();
+      $('#languagesQuizstart').show();
+      
+    }
+}
+
+// Computes score and returns a paragraph element to be displayed
+function displayScoreLang() {
+    var score = $('<p>',{id: 'questionLang'});
+    
+    var numCorrect = 0;
+    for (var i = 0; i < selectionsLang.length; i++) {
+      if (selectionsLang[i] === languagesQuests[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
+    
+    score.append('You got ' + numCorrect + ' questions out of ' +
+                 languagesQuests.length + ' right!!!');
+    return score;
+}
